@@ -15,8 +15,8 @@ class App extends React.Component {
         user: [],
         followers: [],
         followersNames: [],
-        // cards: ['sethnadu'],
-        cardsArray: []
+        cardsArray: [],
+        cards: []
         
         
       }
@@ -43,11 +43,18 @@ class App extends React.Component {
             return follower.login
           })})
           this.state.followersNames.map(name => {
-            fetch(`https://api.github.com/users/${name}`).then(response => response.json())
+           fetch(`https://api.github.com/users/${name}`).then(response => response.json())
                 .then(response => {
                     console.log(response)
-                    return this.setState({cardsArray: [...response, {response}]})
-                })})
+                    return this.setState({cardsArray: [response]})
+                    })
+                    // .then(item => {
+                    //   console.log(item)
+                    //   return this.setState({cards: [...item] })
+                    // }
+                      
+                    // )
+                })
       })
 
       
@@ -57,6 +64,7 @@ class App extends React.Component {
     // console.log(this.state.followers)
     // console.log(this.state.followersNames)
     console.log(this.state.cardsArray)
+    console.log(this.state.cards)
 
 
 
