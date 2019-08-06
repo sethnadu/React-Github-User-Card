@@ -2,8 +2,16 @@ import React from 'react';
 import UserCard from "./Component/user.js";
 // import FollowerCards from "./Component/followerCard.js";
 import './App.css';
+import Styled from "styled-components"
 
 // https://api.github.com/users/sethnadu
+
+
+const MainContainer = Styled.div `
+  margin: 30px;
+  display: flex;
+
+`
 
 
 
@@ -48,13 +56,13 @@ class App extends React.Component {
                     console.log(response)
                     return this.setState({cardsArray: [response]})
                     })
-                    // .then(item => {
-                    //   console.log(item)
-                    //   return this.setState({cards: [...item] })
-                    // }
+                    }) 
+              //  .then(item => {
+              //         console.log(item)
+              //         return this.setState({cards: [...item] })
+              //       }
                       
-                    // )
-                })
+              //       )
       })
 
       
@@ -72,10 +80,10 @@ class App extends React.Component {
   return (
     <div className="App">
         <h2>Github User Cards</h2>
-        <div>
+        <MainContainer>
         {/* <FollowerCards followersNames = {this.state.followersNames} /> */}
         <UserCard user = {this.state.user} followers = {this.state.followers}  />
-        </div>
+        </MainContainer>
     </div>
   );
  } 

@@ -22,6 +22,7 @@ import GithubIcon from "../Assets/githublogo.png";
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+    backgroundColor: "lightgray"
   },
   media: {
     height: 0,
@@ -43,6 +44,13 @@ const useStyles = makeStyles(theme => ({
   },
   githubLogo: {
       width: "43px"
+  },
+  left: {
+      textAlign: "left"
+  },
+  span: {
+      color: "blue",
+      fontWeight: "bold"
   }
 }));
 
@@ -113,17 +121,17 @@ function UserCard({user, followers}) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>GitHub Info</Typography>
-          <Typography paragraph>
-            Repos: {user.public_repos}
+          <Typography className = {classes.left} paragraph>
+            <span className = {classes.span}>Repos: </span>{user.public_repos}
             <br />
-            Repos Url : {user.repos_url}
+            <span className = {classes.span}>Repos Url : </span>{user.repos_url}
           </Typography>
-          <Typography paragraph>
-            Following: {user.following}
+          <Typography className = {classes.left} paragraph>
+          <span className = {classes.span}>Following: </span>{user.following}
             <br />
-            Followers: {user.followers}
+            <span className = {classes.span}>Followers: </span>{user.followers}
             <br />
-            Followers: 
+            <span className = {classes.span}> Followers: </span>
             
             {followers.map(follower => {
               return (
