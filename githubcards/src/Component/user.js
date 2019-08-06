@@ -22,7 +22,8 @@ import GithubIcon from "../Assets/githublogo.png";
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
-    backgroundColor: "lightgray"
+    backgroundColor: "lightgray",
+    border: "4px solid lightgray"
   },
   media: {
     height: 0,
