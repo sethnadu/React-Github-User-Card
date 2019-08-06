@@ -129,9 +129,7 @@ function UserCard({user, followers}) {
           <Typography className = {classes.left} paragraph>
           <span className = {classes.span}>Following: </span>{user.following}
             <br />
-            <span className = {classes.span}>Followers: </span>{user.followers}
-            <br />
-            <span className = {classes.span}> Followers: </span>
+            <span className = {classes.span}> Followers </span>{user.followers}:
             
             {followers.map(follower => {
               return (

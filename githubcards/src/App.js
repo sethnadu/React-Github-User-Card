@@ -12,6 +12,10 @@ const MainContainer = Styled.div `
   display: flex;
 
 `
+const Header = Styled.h2 `
+  font-size: 2.4rem;
+
+`
 
 
 
@@ -79,7 +83,7 @@ class App extends React.Component {
   
   return (
     <div className="App">
-        <h2>Github User Cards</h2>
+        <Header>Github User Cards</Header>
         <MainContainer>
         {/* <FollowerCards followersNames = {this.state.followersNames} /> */}
         <UserCard user = {this.state.user} followers = {this.state.followers}  />
