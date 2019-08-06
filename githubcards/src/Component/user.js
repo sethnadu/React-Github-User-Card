@@ -79,9 +79,9 @@ function UserCard({user, followers}) {
              <Card className={classes.card}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+       <a href = {user.html_url}> <Avatar aria-label="recipe" className={classes.avatar}>
             {<img className={classes.githubLogo} alt = "github" src = {GithubIcon}/>}
-          </Avatar>
+          </Avatar></a>
         }
         action={
           <IconButton aria-label="settings">
@@ -91,11 +91,11 @@ function UserCard({user, followers}) {
         title={user.login}
         subheader={user.name}
       />
-      <CardMedia
+       <CardMedia
         className={classes.media}
-        image={user.avatar_url}
+        image= {user.avatar_url} 
         title="Avatar Image"
-      />
+      ></CardMedia>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {user.bio}
