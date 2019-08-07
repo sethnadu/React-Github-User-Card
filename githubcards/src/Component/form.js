@@ -5,7 +5,7 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            text: 'sethnadu'
+            text: ''
         }
 
 
@@ -13,21 +13,22 @@ class Form extends React.Component {
 
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+           [event.target.name]: event.target.value
         });
+        console.log(typeof this.state.text)
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.handleChangeUser(String(this.state.text))
-        console.log(String(this.state.text))
+        this.props.handleChangeUser(this.state.text);
+        console.log(this.state.text)
     }
 
 
     render(){ 
         return (
             <form onSubmit = {this.handleSubmit}>
-                <input type="text" name="text" placeholder="search by login" onChange={this.handleChange}/>
+                <input type="text" name="text" placeholder="enter username/login" onChange={this.handleChange}/>
                 <button onClick = {this.handleSubmit}>Search</button>
             </form>
         )

@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     backgroundColor: "lightgray",
     border: "4px solid lightgray",
-    maxHeight: "800px",
     margin: "20px auto"
   },
   media: {
@@ -126,9 +125,11 @@ function UserCard({user, followers}) {
           </Typography>
           <Typography className = {classes.left} paragraph>
           <span className = {classes.span}>Following: </span>{user.following}
+           
             <br />
             <span className = {classes.span}> Followers </span>{user.followers}:
-            
+            <br />
+             Max of Thirty:
             {followers.map(follower => {
               return (
                      <li key = {follower.id}>{follower.login}</li>

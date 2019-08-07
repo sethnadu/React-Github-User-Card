@@ -13,6 +13,7 @@ const MainContainer = Styled.div `
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  height: 100%;
 
 `
 const Header = Styled.h2 `
@@ -27,11 +28,12 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-        user: ['sethnadu'],
+        user: '',
         followers: [],
         followersNames: [],
         cardsArray: [],
-        cards: []
+        cards: [],
+        url: 'sethnadu'
         
         
       }
@@ -47,11 +49,12 @@ class App extends React.Component {
   
 
     fetchInfo = () => Promise.all([
-      fetch(`https://api.github.com/users/${this.state.user}`).then(response => response.json()),
-      fetch(`https://api.github.com/users/${this.state.user}/followers`).then(response => response.json())
+      fetch(`https://api.github.com/users/${this.state.url}`).then(response => response.json()),
+      fetch(`https://api.github.com/users/${this.state.url}/followers`).then(response => response.json())
     ])
     
       .then(([userGithub, userFollowers]) => {
+        console.log(this.state.url)
         console.log(userGithub, userFollowers)
           this.setState({user: userGithub})
           this.setState({followers: userFollowers})
@@ -74,18 +77,21 @@ class App extends React.Component {
 
 
       handleChangeUser = (newName) => {
-        console.log(newName)
-            this.setState({
-              user: `${newName}`
-              // user: newName
+        console.log(typeof newName, newName)
+        this.fetchInfo()
+            this.setState ({ 
+              // user: `${newName}`
+              url: newName
             })
-            this.fetchInfo()
+            console.log(this.state.url)
+            
+            
         }
       
 
       
   render() {
-      
+    console.log(this.state.url)
     console.log(this.state.user)
     // console.log(this.state.followers)
     // console.log(this.state.followersNames)
