@@ -23,11 +23,17 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     backgroundColor: "lightgray",
-    border: "4px solid lightgray"
+    border: "4px solid lightgray",
+    maxHeight: "800px",
+    margin: "20px auto"
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    width: "300px",
+    display: "flex",
+    margin: "auto"
+    
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -52,7 +58,8 @@ const useStyles = makeStyles(theme => ({
   span: {
       color: "blue",
       fontWeight: "bold"
-  }
+  },
+  
 }));
 
 function UserCard({user, followers}) {
@@ -65,17 +72,7 @@ function UserCard({user, followers}) {
 
     return (
         <div>
-            {/* <h2>{user.login}</h2>
-            <p>{user.name}</p>
-            <img src ={user.avatar_url} alt = {`${user.name}'s Avatar`} />
-            <p>{user.bio}</p>
-            <p>{user.public_repos}</p>
-            <p>{user.repos_url}</p>
-            <p>{user.following}</p>
-            <p>{user.followers}: </p>
-            {followers.map(follower => {
-              return <p key = {follower.id}>{follower.login}</p>
-            })} */}
+            <h2>User</h2>
              <Card className={classes.card}>
       <CardHeader
         avatar={
